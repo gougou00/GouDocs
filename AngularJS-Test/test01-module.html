@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Module</title>
+</head>
+<body>
+	<div ng-app="oneApp" ng-controller="TestController">
+		<h1>hi !!!</h1>
+		<input type="text" placeholder="请输入文字" ng-model="user.name">
+		<p>hello <strong>{{user.name}}</strong></p>
+		<input type="button" ng-click="showLog()">
+	</div>
+
+	<script src="../angular.min.js"></script>
+	<script>
+		// 创建模块
+		var testModule = angular.module('oneApp', []);
+		// 参数$scope是固定写法
+		testModule.controller('TestController', function($scope) {
+			$scope.user = {};
+			$scope.user.name = 'gougou';
+			$scope.showLog = function() {
+				console.log($scope.user.name);
+			}
+		});
+	</script>
+</body>
+</html>

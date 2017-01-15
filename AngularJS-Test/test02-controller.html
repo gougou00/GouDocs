@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Controller</title>
+</head>
+<body ng-app="oneApp" ng-controller="TestController">
+	<script src="../angular.min.js"></script>
+	<script>
+		// 创建模块
+		var testModule = angular.module('oneApp', []);
+		testModule.controller('TestController', [
+			'$scope',
+			function(a) {
+				console.log(a);	// 打印$scope对象
+			}
+		]);
+
+	</script>
+</body>
+</html>
