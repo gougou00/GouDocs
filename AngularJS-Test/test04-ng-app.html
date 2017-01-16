@@ -5,12 +5,13 @@
 	<title>使用多个ng-app模块</title>
 </head>
 <body>
-<div ng-app="demo1" ng-controller="oneController">
-	<input type="button" value="按钮1" ng-click="doSomething1()">
-</div>
-<div ng-app="demo2" ng-controller="twoController">
-	<input type="button" value="按钮2" ng-click="doSomething2()">
-</div>
+	<div ng-app="demo1" ng-controller="oneController">
+		<input type="button" value="按钮1" ng-click="doSomething1()">
+	</div>
+	<div ng-app="demo2" ng-controller="twoController">
+		<input type="button" value="按钮2" ng-click="doSomething2()">
+	</div>
+
 	<script src="../angular.min.js"></script>
 	<script>
 		var app1 = angular.module('demo1', []);
