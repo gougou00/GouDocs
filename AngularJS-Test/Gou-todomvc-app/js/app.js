@@ -44,7 +44,26 @@
 				}
 			}
 		};
+		// 清空功能
+		$scope.clear = function () {
+			var result = [];
+			for (var i = 0; i < $scope.todos.length; i++) {
+				if (!$scope.todos[i].completed) {
+					result.push($scope.todos[i]);
+				}
+			}
+			$scope.todos = result;
+		};
 
+		$scope.exist = function () {
+			for (var i = 0; i < $scope.todos.length; i++) {
+				if ($scope.todos[i].completed) {
+					return true;
+				}
+			}
+			return false;
+		};
+		
 	}]);
 
 })(window);
