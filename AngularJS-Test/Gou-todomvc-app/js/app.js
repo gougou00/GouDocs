@@ -27,6 +27,10 @@
 		];
 		// 添加todo
 		$scope.add = function () {
+			// 判断输入是否为空
+			if (!$scope.text) {
+				return;
+			}
 			$scope.todos.push({
 				// auto
 				id: getId(),
@@ -73,6 +77,15 @@
 			$scope.currentEditID = -1;
 		}
 		
+		// 增加全选功能
+		var now = true;
+		$scope.toggleAll = function () {
+			for (var i = 0; i < $scope.todos.length; i++) {
+				$scope.todos[i].completed = now;
+			}
+			now = !now;
+		};
+
 	}]);
 
 })(window);
