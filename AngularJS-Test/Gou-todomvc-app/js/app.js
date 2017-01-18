@@ -64,6 +64,15 @@
 			return false;
 		};
 		
+		// 编辑功能
+		$scope.currentEditID = -1;
+		$scope.editing = function (id) {
+			$scope.currentEditID = id;
+		};
+		$scope.inputFinished = function () {
+			$scope.currentEditID = -1;
+		}
+		
 	}]);
 
 })(window);
