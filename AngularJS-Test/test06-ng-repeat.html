@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-repeat</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+	</style>
+	<script src="../angular.min.js"></script>
+</head>
+<body ng-app="demo">
+	<ul ng-controller="listController">
+		<!-- <li ng-repeat="item in testdata" data-id="{{item.id}}"><strong>{{item.name}}</strong>&nbsp;&nbsp;&nbsp;<span>{{item.age}}</span></li> -->
+		<li ng-repeat="item in testdata">
+		<span>{{$first?'start':''}}</span><br><span>{{item.id}}</span>&nbsp<span>{{item.name}}</span>&nbsp;&nbsp;<span>{{item.age}}</span><br><span>{{$last?'finished':''}}</span>
+		</li>
+	</ul>
+	
+	<script>
+		angular.module('demo', [])
+			.controller('listController', ['$scope', function($scope) {
+				$scope.testdata = [];
+				for (var i = 1; i < 10; i++) {
+					$scope.testdata[$scope.testdata.length] = {
+						id: i,
+						name: 'Momo的小狗',
+						age: 10 + i
+					};
+				}
+
+			}]);
+	</script>
+</body>
+</html>
