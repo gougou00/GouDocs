@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-show</title>
+	<style>
+		.tips {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(100, 100, 100, .5);
+			font-size: 40px;
+			line-height: 100vh;
+			text-align: center;
+		}
+	</style>
+	<script src="../angular.min.js"></script>
+</head>
+<body ng-controller="listController">
+	<div>
+		hahahahahaha
+	</div>
+	<div class="tips" ng-show="loading">
+		loading......
+	</div>
+
+	<script>
+		angular.module('demo', [])
+			.controller('listController', ['$scope', '$timeout', function($scope, $timeout) {
+				$scope.loading = true;
+				$timeout(function() {
+					$scope.loading = false;
+				}, 3000);
+			}]);
+	</script>
+</body>
+</html>
