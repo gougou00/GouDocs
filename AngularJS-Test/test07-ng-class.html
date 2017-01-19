@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-class</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		.blue {
+			color: blue;
+		}
+		.green {
+			color: green;
+		}
+		.pink {
+			color: pink;
+		}
+	</style>
+	<script src="../angular.min.js"></script>
+</head>
+<body ng-app="demo">
+	<!-- <input type="text" ng-model="text"> -->
+	<ul ng-controller="listController">
+		<!-- 如果testname里的值有重复的，要加track by $index -->
+		<li ng-repeat="item in testname track by $index" ng-class="{blue:item.startsWith('T')}">{{item}}</li>
+	</ul>
+	
+	<script>
+		angular.module('demo', [])
+			.controller('listController', ['$scope', function($scope) {
+				$scope.testname = ['Momo','Nana','Yaya','Tata','Tata'];
+				
+			}]);
+	</script>
+</body>
+</html>
