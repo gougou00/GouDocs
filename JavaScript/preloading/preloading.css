@@ -1,0 +1,17 @@
+img {border: none;}
+#demo {margin: 0; padding: 0;}
+#demo li {
+	list-style-type: none;
+	float: left;
+	margin-left: 1em;
+	padding: 0.25em 0.5em;
+	border: 1px solid silver;
+	font-family: sans-serif;
+	text-align: center;
+}
+#demo img {
+	display: block;
+}
+#demo li h2 {font-size: 100%;}
+#demo li a {text-decoration: none;}
+#demo li a span {text-decoration: none;}
