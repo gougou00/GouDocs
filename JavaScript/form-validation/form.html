@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form</title>
+</head>
+<body>
+	<form action="" method="post" onsubmit="return gou.regexCheck();">
+		<input type="hidden" name="" id="errnum" value="0">
+		注册名称：<input type="text" name="" id="userid"><br><br>
+		注册密码：<input type="password" name="" id="userpwd"><br><br>
+		确认密码：<input type="password" name="" id="userpwd2"><br><br>
+		自我介绍：<textarea name="" id="about" cols="18" rows="5"></textarea><br><br>
+		<input type="submit" value="注册" id="regexBtn">
+		<input type="button" value="解锁" onclick="gou.unlock()" style="display:none;"
+		id="regexUnlock">
+		<!-- <input type="submit" value="注册" onclick="gou.regexCheck()"> -->
+	</form>
+	<script>
+		// 声明一个对象，当作命名空间
+		var gou = {};
+		// 定义一个公共函数获取id元素
+		gou.$ = function (id) {
+			return document.getElementById(id);
+		};
+		// 验证方法
+		gou.regexCheck = function () {
+			var userid = gou.$("userid");
+			var userpwd = gou.$("userpwd");
+			var userpwd2 = gou.$("userpwd2");
+			if (userid.value === '') {
+				alert('注册名称不能为空!');
+				gou.err();
+				return false;
+			}
+			if (userpwd.value === '') {
+				alert('密码不能为空!');
+				gou.err();
+				return false;
+			}
+			if (userpwd.value !== userpwd2.value) {
+				alert('两次密码输入不相同!');
+				gou.err();
+				return false;
+			}
+			var about = gou.$("about");
+			if (about.value.length > 60) {
+				alert('简介过长！');
+				gou.err();
+				return false;
+			}
+			return true;
+		};
+		// 记录错误次数
+		gou.err = function () {
+			var el = gou.$("errnum");
+			var old = el.value;
+			el.value = parseInt(old) + 1;
+			gou.lock();
+		};
+		// 判断是否锁定注册
+		gou.lock = function () {
+			var err = gou.$("errnum");
+			// 输入错误3次锁定
+			if (parseInt(err.value) > 2) {
+				gou.$("regexBtn").disabled = true;
+				// 显示解锁按钮
+				gou.$("regexUnlock").style.display = "block";
+			}
+		};
+		// 解锁
+		gou.unlock = function () {
+			gou.$("regexBtn").disabled = false;
+			gou.$("regexUnlock").style.display = "none";
+		}
+	</script>
+</body>
+</html>
