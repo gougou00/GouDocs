@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<title>两列浮动布局</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font: 62.5%/1.6 "Consolas";
+			background-color: #d4d4d4;
+		}
+		h1 {
+			font-size: 2.4em;
+			font-weight: normal;
+		}
+		p, li {
+			font-size: 1.4em;
+		}
+		h1, p {
+			margin: 1em 0;
+		}
+		.wrapper {
+			background-color: #fff;
+		}
+		.header {
+			height: 50px;
+			background-color: #b0b0b0;
+			padding: 20px;
+		}
+		.nav {
+			list-style: none;
+			background-color: #eee;
+			padding: 20px
+		}
+		
+		.footer {
+			background-color: #b0b0b0;
+			padding: 1px 20px;
+		}
+
+		/* ie6不支持margin:auto */
+		body {
+			text-align: center;
+		}
+		/* 设计居中，定义包裹容器div的宽度，然后水平外边距设置auto */
+		.wrapper {
+			width: 920px;
+			margin: 0 auto;
+			text-align: left;
+		}
+		/* 对浮动元素的父元素应用溢出方法，清理浮动 */
+		.content {
+			overflow: hidden;
+		}
+		.content .primary {
+			width: 650px;
+			float: right;
+			padding-right: 20px;
+			/* ie6 外边距浮动 */
+			display: inline;
+		}
+
+		.content .secondary {
+			width: 230px;
+			float: left;
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+	<!-- 用一个容器元素让设计居中，包含页眉，内容，页脚 -->
+	<div class="wrapper">
+		<!-- 页眉 -->
+		<div class="header">
+			<h1>Hello MoMO</h1>
+		</div>
+		<!-- 内容区域 -->
+		<div class="content">
+			<div class="primary">
+				<h1>人类再败！柯洁对决人工智能首战告负 三番战开门黑</h1>
+				<p>北京时间5月23日，现世界排名第一的柯洁与人工智能围棋程序AlphaGo展开三番棋决战的第一战。最终柯洁执黑负1/4子。双方的第二局比赛将于25日10：30继续进行。</p>
+				<p>去年三月，李世石面对AlphaGo，最终被1-4击败。今年初的时候，AlphaGo化身master，在各大网站对弈平台60-0横扫中日韩各路高手。</p>
+				<p>近一个半月，柯洁正式比赛8胜4负战绩并不算突出，但在围甲联赛的一些比赛中，都能看出他在演练和AlphaGo对阵的招数。发布会上，柯洁没有了一年前的“豪言”，表示：“我将尽全力争胜，一决胜负，抱有必胜的信念和必死的决心，不轻易言败。”</p>
+				<p>早上9时，赛前开幕式正式举行，柯洁、古力、陈耀烨、周睿羊、时越、唐韦星、芈昱廷、连笑等中国棋手到场。和去年对阵李世石时不同，在时间分配上，当时李世石对AlphaGo的用时是每方2小时，1分钟读秒5次，而此次则是每方用时3小时，1分钟读秒5次，增加用时适当地“照顾”了人类棋手。</p>
+				<p>10点半，比赛正式开始，经过猜先柯洁执黑先行。柯洁前四手棋下了两个三三，而星位直接点三三也是AlphaGo的标志性招法，柯洁选择“以彼之道，还施彼身”。之后，柯洁与AlphaGo交战点在棋盘右下和左上方。</p>
+				<p>双方通过厮杀，柯洁负1/4子。白棋在面对黑棋点三三和左上的攻防中表现出了强大实力的一角，将黑棋KO以后就又回到稳妥取胜的道路中。</p>
+			</div>
+			<div class="secondary">
+				<ul class="nav">
+					<li class="first"><a href="#">首页</a></li>
+					<li><a href="#">资讯</a></li>
+					<li><a href="#">财经</a></li>
+					<li><a href="#">娱乐</a></li>
+					<li><a href="#">体育</a></li>
+					<li><a href="#">时尚</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 页脚 -->
+		<div class="footer">
+			<p>Footer</p>
+		</div>
+	</div>
+</body>
+</html>
