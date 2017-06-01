@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>跨域获取豆瓣api的电影图片</title>
+  <script src="jquery-1.11.3.js"></script>
+  <script src="jsonp.js"></script>
+  <script>
+    $(function() {
+      $("#send").click(function() {
+        
+        $jsonp(
+				'http://api.douban.com/v2/movie/in_theaters', {
+					count: 16,
+					start: 0
+				},
+				function(data) {
+					// console.log(data.subjects[0])
+          // $("<img class='para'>").attr("src", data.subjects[0].images.large).appendTo("#resText");
+          // i为每个subject的索引，循环遍历每个subject
+          $.each(data.subjects, function(i, item) {
+            $("<img class='para'>").attr("src", item.images.large).appendTo("#resText");
+            if (i === 15) {
+              return false;
+            }
+          })
+				})
+      })
+    })
+  </script>
+</head>
+<body>
+
+  <p>
+    <input type="button" id="send" value="加载"/>
+  </p>
+
+  <div id="resText"> 
+  </div>
+
+</body>
+</html>
